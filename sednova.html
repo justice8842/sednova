@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEDNOVA Solutions Group - Under Maintenance</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'sednova-dark': '#0a0f1c',
+                        'sednova-navy': '#1a2332',
+                        'sednova-cyan': '#00d4ff',
+                        'sednova-blue': '#0066cc'
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'fade-in': 'fadeIn 1s ease-out',
+                        'slide-up': 'slideUp 0.8s ease-out',
+                        'glow': 'glow 2s ease-in-out infinite alternate'
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-20px)' }
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' }
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(30px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' }
+                        },
+                        glow: {
+                            '0%': { boxShadow: '0 0 20px rgba(0, 212, 255, 0.3)' },
+                            '100%': { boxShadow: '0 0 40px rgba(0, 212, 255, 0.6)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .bg-gradient-sednova {
+            background: linear-gradient(135deg, #0a0f1c 0%, #1a2332 50%, #0a0f1c 100%);
+        }
+        
+        .text-glow {
+            text-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+        }
+        
+        .border-glow {
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.1);
+        }
+        
+        .progress-bar {
+            background: linear-gradient(90deg, transparent 0%, rgba(0, 212, 255, 0.3) 50%, transparent 100%);
+            animation: progress-sweep 2s ease-in-out infinite;
+        }
+        
+        @keyframes progress-sweep {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+        
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: #00d4ff;
+            border-radius: 50%;
+            animation: particle-float 8s linear infinite;
+        }
+        
+        @keyframes particle-float {
+            0% { transform: translateY(100vh) translateX(0); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100px) translateX(100px); opacity: 0; }
+        }
+    </style>
+</head>
+<body class="bg-gradient-sednova min-h-screen relative">
+    <!-- Animated Background Particles -->
+    <div id="particles" class="fixed inset-0 pointer-events-none z-0"></div>
+    
+    <!-- Main Content -->
+    <div class="min-h-screen flex flex-col items-center justify-center px-4 py-8 relative z-10">
+        <!-- Logo Container -->
+        <div class="animate-fade-in mb-6 md:mb-8">
+            <div class="animate-float">
+                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/PHOTO-2025-08-31-22-23-19.jpg-MW8HQ0uUbMxlgJMkecqJ6IDfAsG7Sb.jpeg" 
+                     alt="SEDNOVA Solutions Group" 
+                     class="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 lg:w-64 lg:h-64 object-contain animate-glow rounded-lg">
+            </div>
+        </div>
+        
+        <!-- Main Heading -->
+        <div class="text-center mb-6 md:mb-8 animate-slide-up" style="animation-delay: 0.3s;">
+            <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-sednova-cyan text-glow mb-3 md:mb-4">
+                Under Maintenance
+            </h1>
+            <p class="text-base sm:text-lg md:text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed px-2">
+                We're working hard to improve your experience. Our team is implementing exciting new features and enhancements.
+            </p>
+        </div>
+        
+        <!-- Countdown Timer -->
+        <div class="animate-slide-up mb-6 md:mb-8" style="animation-delay: 0.6s;">
+            <div class="text-center mb-4 md:mb-6">
+                <h2 class="text-lg sm:text-xl md:text-2xl text-sednova-cyan font-semibold mb-2">Expected Return</h2>
+                <p class="text-gray-400 text-sm sm:text-base">We'll be back online soon</p>
+            </div>
+            
+            <div class="grid grid-cols-4 gap-2 sm:gap-3 md:gap-4 max-w-xs sm:max-w-sm md:max-w-md mx-auto">
+                <div class="bg-sednova-navy border-glow rounded-lg p-2 sm:p-3 md:p-4 text-center">
+                    <div id="days" class="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-sednova-cyan">00</div>
+                    <div class="text-xs sm:text-sm text-gray-400 uppercase tracking-wide">Days</div>
+                </div>
+                <div class="bg-sednova-navy border-glow rounded-lg p-2 sm:p-3 md:p-4 text-center">
+                    <div id="hours" class="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-sednova-cyan">00</div>
+                    <div class="text-xs sm:text-sm text-gray-400 uppercase tracking-wide">Hours</div>
+                </div>
+                <div class="bg-sednova-navy border-glow rounded-lg p-2 sm:p-3 md:p-4 text-center">
+                    <div id="minutes" class="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-sednova-cyan">00</div>
+                    <div class="text-xs sm:text-sm text-gray-400 uppercase tracking-wide">Minutes</div>
+                </div>
+                <div class="bg-sednova-navy border-glow rounded-lg p-2 sm:p-3 md:p-4 text-center">
+                    <div id="seconds" class="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-sednova-cyan">00</div>
+                    <div class="text-xs sm:text-sm text-gray-400 uppercase tracking-wide">Seconds</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Progress Bar -->
+        <div class="animate-slide-up mb-6 md:mb-8 w-full max-w-xs sm:max-w-sm md:max-w-md" style="animation-delay: 0.9s;">
+            <div class="bg-sednova-navy rounded-full h-2 overflow-hidden border-glow">
+                <div class="progress-bar h-full w-full"></div>
+            </div>
+            <p class="text-center text-xs sm:text-sm text-gray-400 mt-2">System updates in progress...</p>
+        </div>
+        
+        <!-- Contact Information -->
+        <div class="animate-slide-up text-center mb-16 sm:mb-20" style="animation-delay: 1.2s;">
+            <p class="text-gray-400 mb-4 text-sm sm:text-base">Need immediate assistance?</p>
+            <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center">
+                <a href="mailto:support@sednova.com" 
+                   class="bg-sednova-navy border-glow text-sednova-cyan px-4 sm:px-6 py-2 sm:py-3 rounded-lg hover:bg-opacity-80 transition-all duration-300 hover:shadow-lg hover:shadow-sednova-cyan/20 text-sm sm:text-base">
+                    Contact Support
+                </a>
+                <a href="tel:+1234567890" 
+                   class="text-sednova-cyan hover:text-white transition-colors duration-300 text-sm sm:text-base">
+                    Emergency: +1 (234) 567-8900
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer class="relative text-center text-gray-500 text-xs sm:text-sm animate-fade-in pb-4" style="animation-delay: 1.5s;">
+        <p>&copy; 2025 SEDNOVA Solutions Group. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Countdown Timer
+        function updateCountdown() {
+            // Set target date (24 hours from now for demo)
+            const targetDate = new Date();
+            targetDate.setHours(targetDate.getHours() + 24);
+            
+            const now = new Date().getTime();
+            const distance = targetDate.getTime() - now;
+            
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+            document.getElementById('days').textContent = days.toString().padStart(2, '0');
+            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+            
+            if (distance < 0) {
+                document.getElementById('days').textContent = '00';
+                document.getElementById('hours').textContent = '00';
+                document.getElementById('minutes').textContent = '00';
+                document.getElementById('seconds').textContent = '00';
+            }
+        }
+        
+        // Create floating particles
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            
+            for (let i = 0; i < 20; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 8 + 's';
+                particle.style.animationDuration = (Math.random() * 4 + 6) + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+        
+        // Add smooth scroll and interaction effects
+        function addInteractionEffects() {
+            const logo = document.querySelector('img');
+            const timerBoxes = document.querySelectorAll('.grid > div');
+            
+            // Logo hover effect
+            logo.addEventListener('mouseenter', () => {
+                logo.style.transform = 'scale(1.05)';
+                logo.style.transition = 'transform 0.3s ease';
+            });
+            
+            logo.addEventListener('mouseleave', () => {
+                logo.style.transform = 'scale(1)';
+            });
+            
+            // Timer box hover effects
+            timerBoxes.forEach(box => {
+                box.addEventListener('mouseenter', () => {
+                    box.style.transform = 'translateY(-5px)';
+                    box.style.transition = 'transform 0.3s ease';
+                    box.style.boxShadow = '0 10px 30px rgba(0, 212, 255, 0.3)';
+                });
+                
+                box.addEventListener('mouseleave', () => {
+                    box.style.transform = 'translateY(0)';
+                    box.style.boxShadow = '0 0 20px rgba(0, 212, 255, 0.1)';
+                });
+            });
+        }
+        
+        // Initialize everything when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            updateCountdown();
+            createParticles();
+            addInteractionEffects();
+            
+            // Update countdown every second
+            setInterval(updateCountdown, 1000);
+            
+            // Add new particles periodically
+            setInterval(() => {
+                if (document.querySelectorAll('.particle').length < 30) {
+                    const particle = document.createElement('div');
+                    particle.className = 'particle';
+                    particle.style.left = Math.random() * 100 + '%';
+                    particle.style.animationDuration = (Math.random() * 4 + 6) + 's';
+                    document.getElementById('particles').appendChild(particle);
+                    
+                    // Remove particle after animation
+                    setTimeout(() => {
+                        if (particle.parentNode) {
+                            particle.parentNode.removeChild(particle);
+                        }
+                    }, 8000);
+                }
+            }, 2000);
+        });
+        
+        // Add keyboard accessibility
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                const focusedElement = document.activeElement;
+                if (focusedElement.tagName === 'A') {
+                    focusedElement.click();
+                }
+            }
+        });
+    </script>
+</body>
+</html>
